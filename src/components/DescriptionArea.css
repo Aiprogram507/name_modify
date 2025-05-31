@@ -27,3 +27,47 @@
   display: block;
   margin-bottom: 2px; /* 変更 (5px -> 2px) */
 }
+
+/* 親コンテナのスタイル */
+.description-area-container {
+  position: relative; /* 子要素のabsolute配置の基準 */
+  overflow: hidden;   /* はみ出るアニメーションを隠す */
+  min-height: 120px;  /* 内容が切り替わる際のガタつきを防ぐ高さ。実際のコンテンツに合わせて調整 */
+  margin-bottom: 8px; /* 元の .description-area のマージンなど、レイアウトに合わせて調整 */
+  /* 必要であれば、元の .description-area にあった他のスタイルもこちらに */
+}
+
+/* アニメーション対象のコンテンツラッパー */
+.description-content-wrapper {
+  position: absolute; /* AnimatePresenceで要素を重ねてトランジションさせるため */
+  width: 100%;      /* 親コンテナいっぱいに広がる */
+  left: 0;
+  top: 0;
+  background-color: #f0f0f0; /* 元の .description-area の背景色など */
+  padding: 10px;             /* 元の .description-area のパディングなど */
+  border-radius: 8px;        /* 元の .description-area の角丸など */
+  text-align: center;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.05); /* 元の .description-area の影など */
+}
+
+/* キャラクター絵文字のスタイル (既存のものを確認・調整) */
+.description-char {
+  font-size: 2em;
+  display: block; /* motion.span でアニメーションしやすくするため */
+  margin-bottom: 2px;
+}
+
+/* h3 と p のスタイル (既存のものを確認・調整) */
+.description-content-wrapper h3 {
+  margin-top: 0;
+  margin-bottom: 5px;
+  font-size: 1.1em;
+  color: #333;
+}
+
+.description-content-wrapper p {
+  font-size: 0.8em;
+  margin-bottom: 0;
+  line-height: 1.3;
+  color: #555;
+}
