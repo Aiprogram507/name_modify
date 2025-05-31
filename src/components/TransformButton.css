@@ -11,6 +11,7 @@
   color: var(--theme-text-on-primary);    /* ボタン文字色をテーマのプライマリ上の文字色に */
   text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
   transition: background-color 0.3s ease, opacity 0.3s ease;
+  margin: 0 auto 8px auto; /* さらに詰める (前回 margin-bottom: 10px -> 8px) */
 }
 
 .transform-button:disabled {
