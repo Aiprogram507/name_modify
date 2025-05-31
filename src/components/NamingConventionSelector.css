@@ -5,14 +5,27 @@
 }
 
 .selector-button {
-  padding: 8px 12px; /* 変更 (10px 15px -> 8px 12px) */
-  border: none;
+  padding: 8px 12px;
+  border: 1px solid var(--theme-primary); /* ボーダーもテーマカラーに */
   border-radius: 8px;
-  font-size: 0.9em; /* 変更 (1em -> 0.9em) */
+  font-size: 0.9em;
   font-weight: bold;
   cursor: pointer;
   outline: none;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: transparent; /* 通常時は透明または薄い色 */
+  color: var(--theme-primary);   /* 通常時の文字色をテーマのプライマリに */
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.selector-button:hover:not(.selected) {
+  background-color: rgba(0,0,0,0.05); /* ホバー時の薄い色 */
+}
+
+.selector-button.selected {
+  background-color: var(--theme-primary) !important; /* JSからの上書きを優先 */
+  color: var(--theme-text-on-primary) !important;
+  box-shadow: 0 0 10px 2px var(--theme-primary) !important;
+  border-color: var(--theme-primary) !important;
 }
 
 /* .selector-button.selected ... (変更なし) */

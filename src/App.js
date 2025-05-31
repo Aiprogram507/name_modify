@@ -11,11 +11,16 @@ import QuizArea from './components/QuizArea';
 import { toCamelCase, toPascalCase, toSnakeCase, toKebabCase } from './utils/namingUtils';
 
 const conventions = [
-  { id: 'camelCase', name: 'キャメル🐪', color: '#f39c12', gradientColor: 'rgba(243, 156, 18, 0.3)' },
-  { id: 'pascalCase', name: 'パスカル🐫', color: '#e67e22', gradientColor: 'rgba(230, 126, 34, 0.3)' },
-  { id: 'snakeCase', name: 'スネーク🐍', color: '#2ecc71', gradientColor: 'rgba(46, 204, 113, 0.3)' },
-  { id: 'kebabCase', name: 'ケバブ🍢', color: '#e74c3c', gradientColor: 'rgba(231, 76, 60, 0.3)' },
-  //{ id: 'default', name: 'デフォルト', color: '#95a5a6', gradientColor: 'rgba(149, 165, 166, 0.2)'}
+  { id: 'camelCase', name: 'キャメル🐪', color: '#f39c12', gradientColor: 'rgba(243, 156, 18, 0.3)',
+    theme: { primary: '#f39c12', secondary: '#fff8e1', textOnPrimary: '#FFFFFF', textOnSecondary: '#795548' } },
+  { id: 'pascalCase', name: 'パスカル🐫', color: '#e67e22', gradientColor: 'rgba(230, 126, 34, 0.3)',
+    theme: { primary: '#e67e22', secondary: '#fff8e1', textOnPrimary: '#FFFFFF', textOnSecondary: '#795548' } }, // キャメルと似たテーマでもOK
+  { id: 'snakeCase', name: 'スネーク🐍', color: '#2ecc71', gradientColor: 'rgba(46, 204, 113, 0.3)',
+    theme: { primary: '#27ae60', secondary: '#e8f5e9', textOnPrimary: '#FFFFFF', textOnSecondary: '#1b5e20' } }, // 少し濃い緑をプライマリに
+  { id: 'kebabCase', name: 'ケバブ🍢', color: '#e74c3c', gradientColor: 'rgba(231, 76, 60, 0.3)',
+    theme: { primary: '#c0392b', secondary: '#ffebee', textOnPrimary: '#FFFFFF', textOnSecondary: '#b71c1c' } }, // 少し濃い赤をプライマリに
+  //{ id: 'default', name: 'デフォルト', color: '#95a5a6', gradientColor: 'rgba(149, 165, 166, 0.2)',
+    //theme: { primary: '#7f8c8d', secondary: '#eceff1', textOnPrimary: '#FFFFFF', textOnSecondary: '#37474f' } }
 ];
 
 function App() {
@@ -62,6 +67,18 @@ function App() {
       return () => clearTimeout(timer);
     }
   }, [selectedConvention]); // ★ 依存配列を selectedConvention のみに変更
+
+  // テーマカラーをCSSカスタムプロパティとしてHTMLルートに設定するuseEffect
+  useEffect(() => {
+    const currentTheme = conventions.find(c => c.id === selectedConvention)?.theme;
+    if (currentTheme) {
+      document.documentElement.style.setProperty('--theme-primary', currentTheme.primary);
+      document.documentElement.style.setProperty('--theme-secondary', currentTheme.secondary);
+      document.documentElement.style.setProperty('--theme-text-on-primary', currentTheme.textOnPrimary);
+      document.documentElement.style.setProperty('--theme-text-on-secondary', currentTheme.textOnSecondary);
+      // 必要に応じて他のCSS変数も設定できます (例: --theme-border-colorなど)
+    }
+  }, [selectedConvention]); // selectedConvention が変わるたびに実行
 
   return (
     <div className="app-container">

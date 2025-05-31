@@ -1,3 +1,11 @@
+:root {
+  /* フォールバック用のデフォルトテーマカラー (JSが無効な場合や初期読み込み時) */
+  --theme-primary: #7f8c8d;
+  --theme-secondary: #eceff1;
+  --theme-text-on-primary: #FFFFFF;
+  --theme-text-on-secondary: #37474F;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,19 +13,24 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #f4f7f6;
+  background-color: var(--theme-secondary); /* ボディ全体の背景もテーマに合わせる */
+  color: var(--theme-text-on-secondary);    /* 基本のテキストカラー */
+  transition: background-color 0.4s ease, color 0.4s ease; /* 色の変化を滑らかに */
 }
 
 .App {
   width: 100%;
   max-width: 400px; /* PCでの閲覧時の最大幅 */
   margin: 0 auto;
-  background-color: #ffffff;
+  background-color: var(--theme-secondary); /* アプリコンテナの背景 */
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   padding: 10px 15px;
   box-sizing: border-box;
+  height: 750px; /* 固定高さの例 */
+  overflow-y: hidden;
+  transition: background-color 0.4s ease; /* 背景色の変化を滑らかに */
 
   /* --- 高さの調整 --- */
   /* 以前は min-height: 100vh; でしたが、以下のように変更してみます */
@@ -68,7 +81,8 @@ body {
   text-align: center;
   padding: 3px 0; /* 少しパディングを調整 */
   font-size: 0.65em; /* 少しフォントサイズを調整 */
-  color: #777;
+  color: var(--theme-text-on-secondary); /* フッターの文字色 */
+  opacity: 0.8; /* 少し薄くするなど */
   border-top: 1px solid #eee;
   margin-top: 8px; /* 少しマージンを調整 */
 }

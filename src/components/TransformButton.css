@@ -1,12 +1,20 @@
+/* src/components/TransformButton.css */
 .transform-button {
-  display: block;
-  width: 70%;
-  margin: 0 auto 8px auto; /* さらに詰める (前回 margin-bottom: 10px -> 8px) */
-  padding: 9px 15px; /* 上下パディングをさらに少し詰める (前回 10px -> 9px) */
-  font-size: 1.05em;   /* さらに詰める (前回 1.1em -> 1.05em) */
+  /* ... (display, width, marginなど) ... */
+  padding: 9px 15px;
+  font-size: 1.05em;
   font-weight: bold;
   border: none;
   border-radius: 10px;
   cursor: pointer;
+  background-color: var(--theme-primary); /* ボタン背景をテーマのプライマリに */
+  color: var(--theme-text-on-primary);    /* ボタン文字色をテーマのプライマリ上の文字色に */
   text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+  transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+.transform-button:disabled {
+  background-color: #aaa; /* 無効時の色は固定でも良いし、テーマから生成しても良い */
+  color: #666;
+  opacity: 0.7;
 }
