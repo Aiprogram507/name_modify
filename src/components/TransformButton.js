@@ -72,7 +72,7 @@ const TransformButton = ({ onClick, isDisabled }) => {
 
 
   return (
-    <div style={{ position: 'relative', display: 'inline-block' }}> {/* ボタンのコンテナ */}
+    <div style={{ position: 'relative', display: 'block', width: 'fit-content', margin: "0 auto 10px auto" }}> {/* ボタンのコンテナ */}
       {/* パーティクルエフェクトコンテナ */}
       {/* AnimatePresenceを使う場合は、isAnimatingでラップされた要素の表示・非表示を管理 */}
       <AnimatePresence>
@@ -85,6 +85,7 @@ const TransformButton = ({ onClick, isDisabled }) => {
               width: '1px', // 中心点なのでサイズはほぼ不要
               height: '1px',
               zIndex: 10, // ボタンより手前
+              transform: 'translate(-50%, -50%)'
             }}
           >
             {[...Array(numParticles)].map((_, i) => (
@@ -98,6 +99,7 @@ const TransformButton = ({ onClick, isDisabled }) => {
                 custom={i} // variantsの関数にインデックスを渡す
                 style={{
                   position: 'absolute', // 親(中心点)からの相対位置
+                  left: '0', top: '0', // 基点からの相対位置 (particleVariantsのx,yで制御)
                   width: '10px', // パーティクルのサイズ
                   height: '10px',
                   borderRadius: '50%',
