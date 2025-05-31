@@ -1,0 +1,44 @@
+.quiz-area {
+  background-color: #e9f5ff;
+  padding: 8px 10px; /* 上下パディングをさらに少し詰める (前回 10px -> 8px) */
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.quiz-area h4 {
+  margin-top: 0;
+  margin-bottom: 6px; /* さらに詰める (前回 8px -> 6px) */
+  font-size: 1.05em;   /* さらに詰める (前回 1.1em -> 1.05em) */
+  color: #1a73e8;
+}
+
+.quiz-question {
+  font-size: 0.95em; /* さらに詰める (前回 1em -> 0.95em) */
+  margin-bottom: 6px; /* さらに詰める (前回 8px -> 6px) */
+  color: #333;
+}
+
+.quiz-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px; /* さらに詰める (前回 8px -> 6px) */
+  margin-bottom: 6px; /* さらに詰める (前回 8px -> 6px) */
+}
+
+.quiz-option-button {
+  padding: 7px; /* さらに詰める (前回 8px -> 7px) */
+  border: 1px solid #1a73e8;
+  background-color: white;
+  color: #1a73e8;
+  border-radius: 5px;
+  font-size: 0.8em; /* さらに詰める (前回 0.85em -> 0.8em) */
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.feedback {
+  font-weight: bold;
+  margin-top: 6px; /* さらに詰める (前回 8px -> 6px) */
+  font-size: 0.85em; /* さらに詰める (前回 0.9em -> 0.85em) */
+}

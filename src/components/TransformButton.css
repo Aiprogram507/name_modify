@@ -1,0 +1,12 @@
+.transform-button {
+  display: block;
+  width: 70%;
+  margin: 0 auto 8px auto; /* さらに詰める (前回 margin-bottom: 10px -> 8px) */
+  padding: 9px 15px; /* 上下パディングをさらに少し詰める (前回 10px -> 9px) */
+  font-size: 1.05em;   /* さらに詰める (前回 1.1em -> 1.05em) */
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+}

@@ -1,0 +1,76 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f4f7f6;
+}
+
+.App {
+  width: 100%;
+  max-width: 400px; /* PCでの閲覧時の最大幅 */
+  margin: 0 auto;
+  background-color: #ffffff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  padding: 10px 15px;
+  box-sizing: border-box;
+
+  /* --- 高さの調整 --- */
+  /* 以前は min-height: 100vh; でしたが、以下のように変更してみます */
+
+  /* ★提案1: 固定のピクセル値を指定する (画像の見た目に近い値を試行錯誤します) */
+  height: 700px; /* 例えばこれくらいの値から調整してみてください */
+  /* height: 680px; */ /* もしくはもう少し低く */
+  /* height: 720px; */ /* もしくはもう少し高く */
+
+  /* ★提案2: ビューポートの高さに対する割合で指定する */
+  /* height: 85vh; */ /* 画面の高さの85%を使う。多くのデバイスで見切れない高さになりやすいです */
+  /* height: 90vh; */ /* もう少し高めにする場合 */
+
+  overflow-y: hidden; /* 重要: コンテンツが万が一はみ出ても縦スクロールバーが表示されないようにします */
+                       /* ただし、コンテンツが見切れる可能性があるので、高さ内に収まるよう他の要素も調整が必要です */
+}
+
+.App-header {
+  text-align: center;
+  margin-bottom: 15px; /* 少しマージンを調整 */
+  color: #333;
+}
+
+.App-header h1 {
+  font-size: 1.6em; /* 縦幅を抑えるため、少しフォントサイズを調整 */
+  margin: 0;
+  background: linear-gradient(45deg, #f06, #9f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 3s infinite linear;
+}
+
+@keyframes shine {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+.App-main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  /* mainエリア内のコンテンツが高さに収まるようにパディングやマージンを調整することも有効です */
+}
+
+.App-footer {
+  text-align: center;
+  padding: 3px 0; /* 少しパディングを調整 */
+  font-size: 0.65em; /* 少しフォントサイズを調整 */
+  color: #777;
+  border-top: 1px solid #eee;
+  margin-top: 8px; /* 少しマージンを調整 */
+}
+
+/* 他のコンポーネントのCSSも、必要に応じてマージンやパディング、フォントサイズを調整してください */

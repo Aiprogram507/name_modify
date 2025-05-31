@@ -1,0 +1,34 @@
+/* src/components/ResultDisplay.css */
+.result-display-container {
+  background-color: #444;
+  color: white;
+  padding: 8px 10px;
+  border-radius: 8px;
+  text-align: center;
+  margin-bottom: 8px;
+  min-height: 38px;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+  overflow: hidden; /* アニメーションによってはみ出るのを防ぐ */
+  display: flex; /* 内部のテキストを中央揃えにしやすくする */
+  justify-content: center;
+  align-items: center;
+}
+
+.result-text {
+  font-size: 1.25em; /* 基本のフォントサイズ */
+  font-weight: bold;
+  font-family: 'Courier New', Courier, monospace;
+  word-break: break-all;
+  /* アニメーションで高さが変わる場合があるので、親コンテナの align-items で調整 */
+}
+
+.result-text strong { /* アンダースコアやハイフンを強調する場合 */
+  font-weight: 900;
+  font-size: 1.1em; /* 少し大きく見せる */
+}
+
+.result-placeholder {
+  font-size: 0.9em;
+  color: #aaa;
+  text-align: center;
+}

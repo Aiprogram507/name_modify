@@ -1,0 +1,13 @@
+.word-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* 変更 (10px -> 8px) */
+  margin-bottom: 10px; /* 変更 (20px -> 10px) */
+}
+
+.word-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 6px; /* さらに詰める (前回 8px -> 6px) */
+  margin-bottom: 8px; /* さらに詰める (前回 10px -> 8px) */
+}

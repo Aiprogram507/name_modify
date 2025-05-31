@@ -1,0 +1,18 @@
+.naming-selector {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 10px; /* 変更 (20px -> 10px) */
+}
+
+.selector-button {
+  padding: 8px 12px; /* 変更 (10px 15px -> 8px 12px) */
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9em; /* 変更 (1em -> 0.9em) */
+  font-weight: bold;
+  cursor: pointer;
+  outline: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* .selector-button.selected ... (変更なし) */
